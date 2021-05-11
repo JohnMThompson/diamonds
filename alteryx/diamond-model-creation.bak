@@ -1,0 +1,1736 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2020.3">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="162" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Apple Valley Diamonds$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Diamonds.xlsx
+Query=`Apple Valley Diamonds$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Stock #" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Apple Valley Diamonds$`" type="V_String" />
+            <Field name="Shape" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Apple Valley Diamonds$`" type="V_String" />
+            <Field name="Carats" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Apple Valley Diamonds$`" type="Double" />
+            <Field name="Colour" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Apple Valley Diamonds$`" type="V_String" />
+            <Field name="Clarity" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Apple Valley Diamonds$`" type="V_String" />
+            <Field name="Cut" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Apple Valley Diamonds$`" type="V_String" />
+            <Field name="Lab" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Apple Valley Diamonds$`" type="V_String" />
+            <Field name="Diamond Diameter" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Apple Valley Diamonds$`" type="V_String" />
+            <Field name="Price" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Apple Valley Diamonds$`" type="Double" />
+            <Field name="Details/Select" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Apple Valley Diamonds$`" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="258" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Stock #" selected="True" rename="Stock Number" />
+            <SelectField field="Carats" selected="True" rename="Carat" />
+            <SelectField field="Colour" selected="True" rename="Color" />
+            <SelectField field="Diamond Diameter" selected="False" />
+            <SelectField field="Details/Select" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="162" y="258" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>True</FirstRowData>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Diamonds.xlsx
+Query=`Arthurs$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="F1" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="270" y="258" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>F1</UpdateField_Name>
+          <CreateField_Name>RecordID</CreateField_Name>
+          <CreateField_Type>Int32</CreateField_Type>
+          <CreateField_Size>4</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>IF lowercase([F1]) = "oval" THEN [Row-1:RecordID]+1 ELSE [Row-1:RecordID] ENDIF</Expression>
+          <GroupByFields />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>IF lowercase([F1]) = "oval" THEN [Row-1:RecordID]+1 ELSE [Row...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="354" y="258" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>F1</UpdateField_Name>
+          <CreateField_Name>FieldID</CreateField_Name>
+          <CreateField_Type>Int32</CreateField_Type>
+          <CreateField_Size>4</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>IF [RecordID] = [Row-1:RecordID] THEN [Row-1:FieldID]+1 else 1 ENDIF</Expression>
+          <GroupByFields />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>IF [RecordID] = [Row-1:RecordID] THEN [Row-1:FieldID]+1 else ...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+        <Position x="438" y="258" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <GroupFields>
+            <Field field="RecordID" />
+          </GroupFields>
+          <HeaderField field="FieldID" />
+          <DataField field="F1" />
+          <Methods>
+            <Method method="First" />
+            <Separator>,</Separator>
+            <FieldSize value="2048" />
+          </Methods>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field description="Formula: IF lowercase([F1]) = &quot;oval&quot; THEN [Row-1:RecordID]+1 ELSE [Row-1:RecordID] ENDIF" name="RecordID" source="CrossTab:Group:First:" type="Int32" />
+            <Field name="1" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="2" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="3" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="4" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="5" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="6" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="7" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="8" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="9" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="10" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="11" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="12" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="13" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="14" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="15" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="16" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="17" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="18" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="19" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="20" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="21" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="22" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="23" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="24" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="25" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="26" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="27" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="28" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="29" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="30" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="31" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="32" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="33" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="34" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="35" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="36" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="37" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="38" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="39" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="40" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="41" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="42" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="43" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="44" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="45" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="46" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="47" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="48" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="49" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="50" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="51" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="52" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="53" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="54" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="55" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="56" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="57" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="58" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="59" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="60" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="61" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="62" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="63" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="64" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="65" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="66" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="67" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="68" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="69" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="70" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="71" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="72" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="73" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="74" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="75" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="76" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="77" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="78" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+            <Field name="79" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="RecordID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="534" y="258" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="RecordID" selected="True" />
+            <SelectField field="1" selected="True" rename="Shape" />
+            <SelectField field="2" selected="True" rename="Carat" />
+            <SelectField field="3" selected="True" rename="Color" />
+            <SelectField field="4" selected="True" rename="Cut" />
+            <SelectField field="5" selected="True" rename="Clarity" />
+            <SelectField field="6" selected="True" rename="Lab" />
+            <SelectField field="7" selected="True" rename="Price" />
+            <SelectField field="8" selected="False" rename="View" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="162" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Graham$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Diamonds.xlsx
+Query=`Graham$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Shape" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Graham$`" type="V_String" />
+            <Field name="Carat" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Graham$`" type="Double" />
+            <Field name="Cut" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Graham$`" type="V_String" />
+            <Field name="Color" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Graham$`" type="V_String" />
+            <Field name="Clarity" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Graham$`" type="V_String" />
+            <Field name="Price" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Graham$`" type="Double" />
+            <Field name="Lab" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Graham$`" type="V_String" />
+            <Field name="F8" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Graham$`" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="234" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="F8" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="174" y="546" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Jared 1000+$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>True</FirstRowData>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Diamonds.xlsx
+Query=`Jared 1000+$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="F1" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Jared 1000+$`" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="174" y="666" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Jared 3000+$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>True</FirstRowData>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Diamonds.xlsx
+Query=`Jared 3000+$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="F1" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Jared 3000+$`" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="174" y="786" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Jared 5260+$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>True</FirstRowData>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Diamonds.xlsx
+Query=`Jared 5260+$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="F1" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Jared 5260+$`" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="282" y="546" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByPos</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="366" y="546" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>F1</UpdateField_Name>
+          <CreateField_Name>RecordID</CreateField_Name>
+          <CreateField_Type>Int32</CreateField_Type>
+          <CreateField_Size>4</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>IF contains([F1], 'Stock') THEN [Row-1:RecordID]+1 ELSE [Row-1:RecordID] ENDIF</Expression>
+          <GroupByFields />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>IF contains([F1], 'Stock') THEN [Row-1:RecordID]+1 ELSE [Row-...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="474" y="546" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>F1</UpdateField_Name>
+          <CreateField_Name>FieldID</CreateField_Name>
+          <CreateField_Type>Int32</CreateField_Type>
+          <CreateField_Size>4</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>IF [RecordID] = [Row-1:RecordID] THEN [Row-1:FieldID]+1 else 1 ENDIF</Expression>
+          <GroupByFields />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>IF [RecordID] = [Row-1:RecordID] THEN [Row-1:FieldID]+1 else ...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="21">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+        <Position x="654" y="594" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <GroupFields>
+            <Field field="RecordID" />
+          </GroupFields>
+          <HeaderField field="FieldID" />
+          <DataField field="F1" />
+          <Methods>
+            <Method method="First" />
+            <Separator>,</Separator>
+            <FieldSize value="2048" />
+          </Methods>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field description="Formula: IF contains([F1], 'Stock') THEN [Row-1:RecordID]+1 ELSE [Row-1:RecordID] ENDIF" name="RecordID" source="CrossTab:Group:First:" type="Int32" />
+            <Field name="1" size="255" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="2" size="255" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="3" size="255" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="4" size="255" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="5" size="255" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="6" size="255" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="7" size="255" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="8" size="255" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="9" size="255" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="10" size="255" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="11" size="255" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="12" size="255" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="13" size="255" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="14" size="255" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="15" size="255" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="16" size="255" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="17" size="255" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="18" size="255" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="19" size="255" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="20" size="255" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="21" size="255" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="22" size="255" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="23" size="255" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="24" size="255" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="25" size="255" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="26" size="255" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="27" size="255" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="28" size="255" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="29" size="255" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="30" size="255" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="31" size="255" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="32" size="255" source="File: (Multiple Sources)" type="V_String" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="RecordID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+    </Node>
+    <Node ToolID="22">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="750" y="594" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="RecordID" selected="True" />
+            <SelectField field="1" selected="True" rename="Stock Number" />
+            <SelectField field="3" selected="True" rename="Price" />
+            <SelectField field="5" selected="True" rename="Carat" />
+            <SelectField field="6" selected="True" rename="Color" />
+            <SelectField field="7" selected="True" rename="Clarity" />
+            <SelectField field="8" selected="True" rename="Cut" />
+            <SelectField field="9" selected="True" rename="Lab" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="26">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+        <Position x="834" y="594" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldType>Text</FieldType>
+          <Fields orderChanged="False">
+            <Field name="Stock Number" />
+            <Field name="Price" />
+            <Field name="Carat" />
+            <Field name="Color" />
+            <Field name="Clarity" />
+            <Field name="Cut" />
+            <Field name="Lab" />
+            <Field name="*Unknown" />
+          </Fields>
+          <CopyOutput value="False" />
+          <Expression>trim(REGEX_Replace([_CurrentField_],'.*:', ''))</Expression>
+          <ChangeFieldType value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>trim(REGEX_Replace([_CurrentField_],'.*:', ''))</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
+    <Node ToolID="27">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="174" y="906" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Jewelery Exchange$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>True</FirstRowData>
+            <ImportLine>12</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Diamonds.xlsx
+Query=`Jewelery Exchange$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="F1" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Jewelery Exchange$`" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="28">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="282" y="906" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>F1</UpdateField_Name>
+          <CreateField_Name>RecordID</CreateField_Name>
+          <CreateField_Type>Int32</CreateField_Type>
+          <CreateField_Size>4</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>IF lowercase([F1]) = "oval" THEN [Row-1:RecordID]+1 ELSE [Row-1:RecordID] ENDIF</Expression>
+          <GroupByFields />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>IF lowercase([F1]) = "oval" THEN [Row-1:RecordID]+1 ELSE [Row...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="29">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="366" y="906" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>F1</UpdateField_Name>
+          <CreateField_Name>FieldID</CreateField_Name>
+          <CreateField_Type>Int32</CreateField_Type>
+          <CreateField_Size>4</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>IF [RecordID] = [Row-1:RecordID] THEN [Row-1:FieldID]+1 else 1 ENDIF</Expression>
+          <GroupByFields />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>IF [RecordID] = [Row-1:RecordID] THEN [Row-1:FieldID]+1 else ...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="30">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+        <Position x="474" y="906" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <GroupFields>
+            <Field field="RecordID" />
+          </GroupFields>
+          <HeaderField field="FieldID" />
+          <DataField field="F1" />
+          <Methods>
+            <Method method="First" />
+            <Separator>,</Separator>
+            <FieldSize value="2048" />
+          </Methods>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field description="Formula: IF lowercase([F1]) = &quot;oval&quot; THEN [Row-1:RecordID]+1 ELSE [Row-1:RecordID] ENDIF" name="RecordID" source="CrossTab:Group:First:" type="Int32" />
+            <Field name="1" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Jewelery Exchange$`" type="V_String" />
+            <Field name="2" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Jewelery Exchange$`" type="V_String" />
+            <Field name="3" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Jewelery Exchange$`" type="V_String" />
+            <Field name="4" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Jewelery Exchange$`" type="V_String" />
+            <Field name="5" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Jewelery Exchange$`" type="V_String" />
+            <Field name="6" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Jewelery Exchange$`" type="V_String" />
+            <Field name="7" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Jewelery Exchange$`" type="V_String" />
+            <Field name="8" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Jewelery Exchange$`" type="V_String" />
+            <Field name="9" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Jewelery Exchange$`" type="V_String" />
+            <Field name="10" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Jewelery Exchange$`" type="V_String" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="RecordID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+    </Node>
+    <Node ToolID="31">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="570" y="906" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="RecordID" selected="True" />
+            <SelectField field="1" selected="True" rename="Shape" />
+            <SelectField field="2" selected="True" rename="Lab" />
+            <SelectField field="3" selected="True" rename="Carat" />
+            <SelectField field="4" selected="True" rename="Color" />
+            <SelectField field="5" selected="True" rename="Clarity" />
+            <SelectField field="6" selected="True" rename="Stock Number" />
+            <SelectField field="7" selected="True" rename="In Store Price" />
+            <SelectField field="8" selected="True" rename="Price" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="33">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="174" y="1062" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>True</FirstRowData>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Diamonds.xlsx
+Query=`Knox$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="F1" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="34">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="306" y="1086" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>F1</UpdateField_Name>
+          <CreateField_Name>RecordID</CreateField_Name>
+          <CreateField_Type>Int32</CreateField_Type>
+          <CreateField_Size>4</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>IF contains(lowercase([F1]),"photo") THEN [Row-1:RecordID]+1 ELSE [Row-1:RecordID] ENDIF</Expression>
+          <GroupByFields />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>IF contains(lowercase([F1]),"photo") THEN [Row-1:RecordID]+1 ...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="35">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="390" y="1086" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>F1</UpdateField_Name>
+          <CreateField_Name>FieldID</CreateField_Name>
+          <CreateField_Type>Int32</CreateField_Type>
+          <CreateField_Size>4</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>IF [RecordID] = [Row-1:RecordID] THEN [Row-1:FieldID]+1 else 1 ENDIF</Expression>
+          <GroupByFields />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>IF [RecordID] = [Row-1:RecordID] THEN [Row-1:FieldID]+1 else ...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="36">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+        <Position x="498" y="1086" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <GroupFields>
+            <Field field="RecordID" />
+          </GroupFields>
+          <HeaderField field="FieldID" />
+          <DataField field="F1" />
+          <Methods>
+            <Method method="First" />
+            <Separator>,</Separator>
+            <FieldSize value="2048" />
+          </Methods>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field description="Formula: IF contains(lowercase([F1]),&quot;photo&quot;) THEN [Row-1:RecordID]+1 ELSE [Row-1:RecordID] ENDIF" name="RecordID" source="CrossTab:Group:First:" type="Int32" />
+            <Field name="1" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" />
+            <Field name="2" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" />
+            <Field name="3" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" />
+            <Field name="4" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" />
+            <Field name="5" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" />
+            <Field name="6" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" />
+            <Field name="7" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" />
+            <Field name="8" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" />
+            <Field name="9" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" />
+            <Field name="10" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" />
+            <Field name="11" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" />
+            <Field name="12" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" />
+            <Field name="13" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" />
+            <Field name="14" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" />
+            <Field name="15" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" />
+            <Field name="16" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" />
+            <Field name="17" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" />
+            <Field name="18" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" />
+            <Field name="19" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" />
+            <Field name="20" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" />
+            <Field name="21" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" />
+            <Field name="22" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" />
+            <Field name="23" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" />
+            <Field name="24" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" />
+            <Field name="25" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" />
+            <Field name="26" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="RecordID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+    </Node>
+    <Node ToolID="37">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="594" y="1086" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="RecordID" selected="True" />
+            <SelectField field="1" selected="False" rename="Photo" />
+            <SelectField field="2" selected="True" rename="Shape" />
+            <SelectField field="3" selected="True" rename="Carat" />
+            <SelectField field="4" selected="True" rename="Color" />
+            <SelectField field="5" selected="True" rename="Clarity" />
+            <SelectField field="6" selected="True" rename="Cut" />
+            <SelectField field="7" selected="False" rename="Depth" />
+            <SelectField field="8" selected="False" rename="Table" />
+            <SelectField field="9" selected="True" rename="Lab" />
+            <SelectField field="10" selected="True" rename="Price" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="39">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="690" y="1086" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Replace([Carat],' ct','')" field="Carat" size="255" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[Carat = Replace([Carat],' ct','')
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="40">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="354" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="replace([Shape], ' Cut', '')" field="Shape" size="255" type="V_String" />
+            <FormulaField expression="left([Color],1)" field="Color" size="255" type="V_String" />
+            <FormulaField expression="&quot;Apple Valley&quot;" field="Store" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Shape = replace([Shape], ' Cut', '')
+Color = left([Color],1)
+Store = "Apple Vall...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="41">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="882" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <AutoResetMode>ByName</AutoResetMode>
+          <MultiMetaInfo>
+            <MetaInfo name="#1">
+              <RecordInfo>
+                <Field name="Stock Number" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Apple Valley Diamonds$`" type="V_String" column="1" />
+                <Field name="Shape" size="255" source="Formula: replace([Shape], ' Cut', '')" type="V_String" column="2" />
+                <Field name="Carat" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Apple Valley Diamonds$`" type="Double" column="3" />
+                <Field name="Color" size="255" source="Formula: left([Color],1)" type="V_String" column="4" />
+                <Field name="Clarity" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Apple Valley Diamonds$`" type="V_String" column="5" />
+                <Field name="Cut" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Apple Valley Diamonds$`" type="V_String" column="6" />
+                <Field name="Lab" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Apple Valley Diamonds$`" type="V_String" column="7" />
+                <Field name="Price" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Apple Valley Diamonds$`" type="Double" column="8" />
+                <Field name="Store" size="1073741823" source="Formula: &quot;Apple Valley&quot;" type="V_WString" column="9" />
+              </RecordInfo>
+            </MetaInfo>
+            <MetaInfo name="#2">
+              <RecordInfo>
+                <Field name="Shape" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" column="2" />
+                <Field name="Carat" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" column="3" />
+                <Field name="Color" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" column="4" />
+                <Field name="Clarity" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" column="5" />
+                <Field name="Cut" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" column="6" />
+                <Field name="Lab" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" column="7" />
+                <Field name="Price" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Arthurs$`" type="V_String" column="8" />
+                <Field name="Store" size="1073741823" source="Formula: &quot;Arthurs&quot;" type="V_WString" column="9" />
+                <Field description="Formula: IF lowercase([F1]) = &quot;oval&quot; THEN [Row-1:RecordID]+1 ELSE [Row-1:RecordID] ENDIF" name="RecordID" source="CrossTab:Group:First:" type="Int32" column="10" />
+              </RecordInfo>
+            </MetaInfo>
+            <MetaInfo name="#3">
+              <RecordInfo>
+                <Field name="Shape" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Graham$`" type="V_String" column="2" />
+                <Field name="Carat" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Graham$`" type="Double" column="3" />
+                <Field name="Color" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Graham$`" type="V_String" column="4" />
+                <Field name="Clarity" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Graham$`" type="V_String" column="5" />
+                <Field name="Cut" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Graham$`" type="V_String" column="6" />
+                <Field name="Lab" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Graham$`" type="V_String" column="7" />
+                <Field name="Price" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Graham$`" type="Double" column="8" />
+                <Field name="Store" size="1073741823" source="Formula: &quot;Graham&quot;" type="V_WString" column="9" />
+              </RecordInfo>
+            </MetaInfo>
+            <MetaInfo name="#4">
+              <RecordInfo>
+                <Field name="Stock Number" size="255" source="Formula: trim(REGEX_Replace([_CurrentField_],'.*:', ''))" type="V_String" column="1" />
+                <Field name="Carat" size="255" source="Formula: trim(REGEX_Replace([_CurrentField_],'.*:', ''))" type="V_String" column="3" />
+                <Field name="Color" size="255" source="Formula: trim(REGEX_Replace([_CurrentField_],'.*:', ''))" type="V_String" column="4" />
+                <Field name="Clarity" size="255" source="Formula: trim(REGEX_Replace([_CurrentField_],'.*:', ''))" type="V_String" column="5" />
+                <Field name="Cut" size="255" source="Formula: trim(REGEX_Replace([_CurrentField_],'.*:', ''))" type="V_String" column="6" />
+                <Field name="Lab" size="255" source="Formula: trim(REGEX_Replace([_CurrentField_],'.*:', ''))" type="V_String" column="7" />
+                <Field name="Price" size="255" source="Formula: trim(REGEX_Replace([_CurrentField_],'.*:', ''))" type="V_String" column="8" />
+                <Field name="Store" size="1073741823" source="Formula: &quot;Jared&quot;" type="V_WString" column="9" />
+                <Field description="Formula: IF contains([F1], 'Stock') THEN [Row-1:RecordID]+1 ELSE [Row-1:RecordID] ENDIF" name="RecordID" source="CrossTab:Group:First:" type="Int32" column="10" />
+              </RecordInfo>
+            </MetaInfo>
+            <MetaInfo name="#5">
+              <RecordInfo>
+                <Field name="Stock Number" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Jewelery Exchange$`" type="V_String" column="1" />
+                <Field name="Shape" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Jewelery Exchange$`" type="V_String" column="2" />
+                <Field name="Carat" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Jewelery Exchange$`" type="V_String" column="3" />
+                <Field name="Color" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Jewelery Exchange$`" type="V_String" column="4" />
+                <Field name="Clarity" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Jewelery Exchange$`" type="V_String" column="5" />
+                <Field name="Lab" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Jewelery Exchange$`" type="V_String" column="7" />
+                <Field name="Price" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Jewelery Exchange$`" type="V_String" column="8" />
+                <Field name="Store" size="1073741823" source="Formula: &quot;Jewelery Exchange&quot;" type="V_WString" column="9" />
+                <Field description="Formula: IF lowercase([F1]) = &quot;oval&quot; THEN [Row-1:RecordID]+1 ELSE [Row-1:RecordID] ENDIF" name="RecordID" source="CrossTab:Group:First:" type="Int32" column="10" />
+                <Field name="In Store Price" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Jewelery Exchange$`" type="V_String" column="11" />
+              </RecordInfo>
+            </MetaInfo>
+            <MetaInfo name="#6">
+              <RecordInfo>
+                <Field name="Shape" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" column="2" />
+                <Field name="Carat" size="255" source="Formula: Replace([Carat],' ct','')" type="V_WString" column="3" />
+                <Field name="Color" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" column="4" />
+                <Field name="Clarity" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" column="5" />
+                <Field name="Cut" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" column="6" />
+                <Field name="Lab" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" column="7" />
+                <Field name="Price" size="255" source="File: C:\Users\john\OneDrive\Desktop\Diamonds.xlsx|||`Knox$`" type="V_WString" column="8" />
+                <Field name="Store" size="1073741823" source="Formula: &quot;Knox&quot;" type="V_WString" column="9" />
+                <Field description="Formula: IF contains(lowercase([F1]),&quot;photo&quot;) THEN [Row-1:RecordID]+1 ELSE [Row-1:RecordID] ENDIF" name="RecordID" source="CrossTab:Group:First:" type="Int32" column="10" />
+              </RecordInfo>
+            </MetaInfo>
+          </MultiMetaInfo>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ManualDelayed</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="42">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="978" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Shape" selected="False" />
+            <SelectField field="Carat" selected="True" type="Double" size="8" />
+            <SelectField field="Cut" selected="False" />
+            <SelectField field="Price" selected="True" type="FixedDecimal" size="19.2" />
+            <SelectField field="RecordID" selected="False" />
+            <SelectField field="In Store Price" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="43">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="630" y="258" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="&quot;Arthurs&quot;" field="Store" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[Store = "Arthurs"
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="44">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="330" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="&quot;Graham&quot;" field="Store" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[Store = "Graham"
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="45">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="918" y="594" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="&quot;Jared&quot;" field="Store" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[Store = "Jared"
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="46">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="666" y="906" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="&quot;Jewelery Exchange&quot;" field="Store" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[Store = "Jewelery Exchange"
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="47">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="786" y="1086" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="&quot;Knox&quot;" field="Store" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[Store = "Knox"
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="55">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+        <Position x="1170" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldName>RecordID</FieldName>
+          <StartValue>1</StartValue>
+          <FieldType>Int32</FieldType>
+          <FieldSize>6</FieldSize>
+          <Position>0</Position>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+    </Node>
+    <Node ToolID="64">
+      <GuiSettings Plugin="Decision_Tree">
+        <Position x="1266" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="curPage">Home</Value>
+          <Value name="curTab">model</Value>
+          <Value name="curToggle">toggle-main</Value>
+          <Value name="display.static">True</Value>
+          <Value name="set_seed_cv">True</Value>
+          <Value name="showClassificationCV">False</Value>
+          <Value name="showWhenTreePlotAvailable">True</Value>
+          <Value name="showWhenAlgorithmAvailable">False</Value>
+          <Value name="use.gini">True</Value>
+          <Value name="use.information">False</Value>
+          <Value name="usesurrogate.0">True</Value>
+          <Value name="usesurrogate.1">False</Value>
+          <Value name="usesurrogate.2">False</Value>
+          <Value name="total.correct">True</Value>
+          <Value name="percent.correct">False</Value>
+          <Value name="model_type">auto</Value>
+          <Value name="auto">True</Value>
+          <Value name="classification">False</Value>
+          <Value name="regression">False</Value>
+          <Value name="tree_summary">Counts</Value>
+          <Value name="Counts">True</Value>
+          <Value name="Proportions">False</Value>
+          <Value name="tree_plot_size">tree.inches</Value>
+          <Value name="tree.inches">True</Value>
+          <Value name="tree.centimeters">False</Value>
+          <Value name="pruning_plot_size">prune.inches</Value>
+          <Value name="prune.inches">True</Value>
+          <Value name="prune.centimeters">False</Value>
+          <Value name="Model Name">Decision_Tree_64</Value>
+          <Value name="Y Var">Price</Value>
+          <Value name="X Vars">Carat,Color,Clarity</Value>
+          <Value name="model.algorithm">rpart</Value>
+          <Value name="posClass">
+          </Value>
+          <Value name="use.weights">False</Value>
+          <Value name="select.weights" />
+          <Value name="splitting_criteria">use.gini</Value>
+          <Value name="surrogate_use">usesurrogate.0</Value>
+          <Value name="surrogate_split_criteria">total.correct</Value>
+          <Value name="min.split">20</Value>
+          <Value name="min.bucket">7</Value>
+          <Value name="xval.folds">10</Value>
+          <Value name="max.depth">20</Value>
+          <Value name="max.bins">
+          </Value>
+          <Value name="set_cp">False</Value>
+          <Value name="cp">0</Value>
+          <Value name="rules">False</Value>
+          <Value name="bands_check">False</Value>
+          <Value name="bands">10</Value>
+          <Value name="subset">False</Value>
+          <Value name="winnow">False</Value>
+          <Value name="GlobalPruning">False</Value>
+          <Value name="fuzzyThreshold">False</Value>
+          <Value name="earlyStopping">False</Value>
+          <Value name="trials">1</Value>
+          <Value name="CF">0.25</Value>
+          <Value name="minCases">2</Value>
+          <Value name="sample">0</Value>
+          <Value name="seed">1</Value>
+          <Value name="use_cv">False</Value>
+          <Value name="numberFolds">5</Value>
+          <Value name="numberTrials">3</Value>
+          <Value name="stratified">False</Value>
+          <Value name="cv_seed">1</Value>
+          <Value name="tree.plot">False</Value>
+          <Value name="Branch Dist">False</Value>
+          <Value name="tree.in.w">5.5</Value>
+          <Value name="tree.in.h">5.5</Value>
+          <Value name="tree.cm.w">13</Value>
+          <Value name="tree.cm.h">14.95</Value>
+          <Value name="tree.graph.resolution">1x</Value>
+          <Value name="tree.pointsize">8</Value>
+          <Value name="prune.plot">False</Value>
+          <Value name="prune.in.w">5.5</Value>
+          <Value name="prune.in.h">5.5</Value>
+          <Value name="prune.cm.w">13</Value>
+          <Value name="prune.cm.h">14.95</Value>
+          <Value name="prune.graph.resolution">1x</Value>
+          <Value name="prune.pointsize">10</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Decision_Tree_64</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings Macro="Decision_Tree/Supporting_Macros/Decision_Tree.yxmc" EngineDll="Macro" EngineDllEntryPoint="Decision_Tree/Supporting_Macros/Decision_Tree.yxmc" />
+    </Node>
+    <Node ToolID="68">
+      <GuiSettings>
+        <Position x="1278" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="model.name">diamond-network</Value>
+          <Value name="select.target">Price</Value>
+          <Value name="select.predictors">RecordID=False,Stock Number=False,Carat=True,Color=True,Clarity=True,Lab=False,Price=False,Store=False</Value>
+          <Value name="use.weights">False</Value>
+          <Value name="select.weights">RecordID</Value>
+          <Value name="num.nodes">10</Value>
+          <Value name="marginal.plots">True</Value>
+          <Value name="custom.scaling">False</Value>
+          <Value name="scale.type">z-score</Value>
+          <Value name="decay">0.100</Value>
+          <Value name="range">0.700</Value>
+          <Value name="max.wts">1000</Value>
+          <Value name="max.iter">100</Value>
+          <Value name="inches">True</Value>
+          <Value name="in.w">5.50</Value>
+          <Value name="in.h">5.50</Value>
+          <Value name="centimeters">False</Value>
+          <Value name="cm.w">13.00</Value>
+          <Value name="cm.h">14.95</Value>
+          <Value name="graph.resolution">1x</Value>
+          <Value name="pointsize">10</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings Macro="Predictive Tools\Neural_Network.yxmc" />
+    </Node>
+    <Node ToolID="80">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="1458" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">C:\Users\john\OneDrive\Desktop\diamond-model-tree.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>diamond-model-tree.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="81">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="1434" y="258" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">C:\Users\john\OneDrive\Desktop\diamond-model-neural.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>diamond-model-neural.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="86">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="1362" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\john\AppData\Local\Temp\Engine_11188_17e0189130754fedb88b4560f2bc1219_\Engine_20592_372ebd18a5ca4ce1993f95f0898485b4_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Report</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="87">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="1506" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\john\AppData\Local\Temp\Engine_11188_17e0189130754fedb88b4560f2bc1219_\Engine_20592_1c0d142a22044fe28226176cbd7cfd4d_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Report</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="89">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="1374" y="306" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\john\AppData\Local\Temp\Engine_11188_17e0189130754fedb88b4560f2bc1219_\Engine_20592_82bb200ead7c412094820b84a3ddbe14_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Report</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="90">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="1074" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression><![CDATA[[Clarity] != "IF" AND
+[Clarity] != "I1" AND
+[Clarity] != "I2" ]]></Expression>
+          <Mode>Custom</Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[[Clarity] != "IF" AND
+[Clarity] != "I1" AND
+[Clarity] != "I2" ]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="40" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="43" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="44" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection name="#3">
+      <Origin ToolID="17" Connection="Output" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Output" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="21" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="21" Connection="Output" />
+      <Destination ToolID="22" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="Output" />
+      <Destination ToolID="26" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="26" Connection="Output" />
+      <Destination ToolID="45" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="27" Connection="Output" />
+      <Destination ToolID="28" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="28" Connection="Output" />
+      <Destination ToolID="29" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="29" Connection="Output" />
+      <Destination ToolID="30" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="30" Connection="Output" />
+      <Destination ToolID="31" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="Output" />
+      <Destination ToolID="46" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="33" Connection="Output" />
+      <Destination ToolID="34" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="34" Connection="Output" />
+      <Destination ToolID="35" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="35" Connection="Output" />
+      <Destination ToolID="36" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="36" Connection="Output" />
+      <Destination ToolID="37" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="37" Connection="Output" />
+      <Destination ToolID="39" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="39" Connection="Output" />
+      <Destination ToolID="47" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="40" Connection="Output" />
+      <Destination ToolID="41" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="43" Connection="Output" />
+      <Destination ToolID="41" Connection="Input" />
+    </Connection>
+    <Connection name="#3">
+      <Origin ToolID="44" Connection="Output" />
+      <Destination ToolID="41" Connection="Input" />
+    </Connection>
+    <Connection name="#4">
+      <Origin ToolID="45" Connection="Output" />
+      <Destination ToolID="41" Connection="Input" />
+    </Connection>
+    <Connection name="#5">
+      <Origin ToolID="46" Connection="Output" />
+      <Destination ToolID="41" Connection="Input" />
+    </Connection>
+    <Connection name="#6">
+      <Origin ToolID="47" Connection="Output" />
+      <Destination ToolID="41" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="41" Connection="Output" />
+      <Destination ToolID="42" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="42" Connection="Output" />
+      <Destination ToolID="90" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="55" Connection="Output" />
+      <Destination ToolID="64" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="55" Connection="Output" />
+      <Destination ToolID="68" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="64" Connection="Output" />
+      <Destination ToolID="80" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="64" Connection="Reports" />
+      <Destination ToolID="86" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="64" Connection="Interactive" />
+      <Destination ToolID="87" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="68" Connection="Output" />
+      <Destination ToolID="81" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="68" Connection="Report" />
+      <Destination ToolID="89" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="90" Connection="True" />
+      <Destination ToolID="55" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>diamond-model-creation</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
