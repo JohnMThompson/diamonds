@@ -3,7 +3,7 @@ import numpy as np
 from pandas.core.frame import DataFrame
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
-import joblib
+import pickle
 
 # Import csv with known diamond inventory and prices
 features = pd.read_csv('diamonds.csv')
@@ -39,4 +39,4 @@ rf = RandomForestRegressor(n_estimators=1000, random_state=42)
 rf.fit(train_features, train_labels)
 
 # Save model
-joblib.dump(rf, "./random_forest.joblib")
+pickle.dump(rf, open("./random_forest.pkl", 'wb'))

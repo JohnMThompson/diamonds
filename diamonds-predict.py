@@ -4,7 +4,7 @@ from pandas.core.frame import DataFrame
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 import scipy.sparse as sparse
-import joblib
+import pickle
 
 # Define value mapping
 mapping = {'Color': {'D': 1, 'E': 2, 'F': 3, 'G': 4, 'H': 5, 'I': 6, 'J': 7},
@@ -16,40 +16,40 @@ mapping = {'Color': {'D': 1, 'E': 2, 'F': 3, 'G': 4, 'H': 5, 'I': 6, 'J': 7},
 # Define the diamond features
 
 # Values for testing
-# center_carat = 1.2
-# center_color = 'G'
-# center_clarity = 'VS1'
+center_carat = 1.2
+center_color = 'G'
+center_clarity = 'VS1'
 
-# side_carat = 0.5
-# side_color = 'H'
-# side_clarity = 'VS2'
+side_carat = 0.5
+side_color = 'H'
+side_clarity = 'VS2'
 
-# Setting = 2500
+Setting = 2500
 
-print(f'\nCenter Stone')
-center_carat = float(input('Enter carat weight:'))
-center_color = input('Enter color:')
-center_clarity = input('Enter clarity:')
+# print(f'\nCenter Stone')
+# center_carat = float(input('Enter carat weight:'))
+# center_color = input('Enter color:')
+# center_clarity = input('Enter clarity:')
 
-print(f'\nSide Stones')
-side_carat = float(input('Enter carat weight:'))
-side_color = input('Enter color:')
-side_clarity = input('Enter clarity:')
+# print(f'\nSide Stones')
+# side_carat = float(input('Enter carat weight:'))
+# side_color = input('Enter color:')
+# side_clarity = input('Enter clarity:')
 
-print(f'\nSetting')
-Setting = int(input('Enter setting cost:'))
+# print(f'\nSetting')
+# Setting = int(input('Enter setting cost:'))
 
 # Create the data frame from the above variables
 
-d_center = {'Carat': [center_carat],
-            'Color': [center_color],
-            'Clarity': [center_clarity],
-            'Position': 'Center'
+d_center = {'carat': [center_carat],
+            'color': [center_color],
+            'clarity': [center_clarity],
+            'position': 'Center'
             }
-d_side = {'Carat': [side_carat],
-          'Color': [side_color],
-          'Clarity': [side_clarity],
-          'Position': 'Side'
+d_side = {'carat': [side_carat],
+          'color': [side_color],
+          'clarity': [side_clarity],
+          'position': 'Side'
           }
 df_center = pd.DataFrame(data=d_center)
 df_side = pd.DataFrame(data=d_side)
@@ -63,7 +63,7 @@ test_data = test_data.drop(['Position', 'index'], axis=1)
 test_data
 
 # Import Model from File
-rf = joblib.load('./random_forest.joblib')
+rf = pickle.load(open('./random_forest.pkl', 'rb'))
 
 # Predict
 prediction = DataFrame(rf.predict(test_data))
