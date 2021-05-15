@@ -24,7 +24,7 @@ def predict():
     df = df.join(df_split)
     df = df.drop(['d_item'], axis=1)
     settingdf = df.loc[df[0] == 'setting']
-    setting = float(settingdf.iloc[0]['value'])
+    setting = int(settingdf.iloc[0]['value'])
     df = df[df[0] != 'setting']
 
     df = df.pivot(index=0, columns=1, values='value')
@@ -41,13 +41,17 @@ def predict():
 
     prediction = model.predict(test_data)
 
-    center_prediction = float(prediction[0])
-    side_prediction = float(prediction[1])*2
+    center_prediction = int(prediction[0])
+    side_prediction = int(prediction[1])*2
     total_cost = (center_prediction, side_prediction, setting)
     total_cost = sum(total_cost)
 
     return render_template(
-        'index.html', prediction_text=total_cost
+        'index.html',
+        prediction_text=total_cost,
+        center_stone=center_prediction,
+        side_stones=side_prediction,
+        setting_cost=setting
     )
 
 

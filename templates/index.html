@@ -11,33 +11,58 @@
 </head>
 
 <body>
-    <h1 class='text-center'>Diamond Stuff!</h1>
+    <h1 class='text'>Diamond Pricing App</h1>
+    <br>
+    This app is to help estimate costs for a 3-stone ring using oval diamonds. 
+        <br><br>
 
-    <h3>Enter Stats</h3>
+    <h4>Describe your ring below!</h4>
     <form action="{{ url_for('predict')}}" method="post">
         Center Stone
         <br>
         <input type="text" name="center_carat" placeholder="Carat Weight" required="required" />
-        <input type="text" name="center_color" placeholder="Color" required="required" />
-        <input type="text" name="center_clarity" placeholder="Clarity" required="required" />
-        <!-- <input type="text" name="center_height" placeholder="Height" required="required" />
-        <input type="text" name="center_width" placeholder="Width" required="required" /> -->
+        <input type="text" name="center_color" placeholder="Color" required="required" list='color_list'/>
+        <datalist id='color_list'>
+        <option value = 'D'>
+        <option value = 'E'>
+        <option value = 'F'>
+        <option value = 'G'>
+        <option value = 'H'>
+        <option value = 'I'>
+        </datalist>
+        <input type="text" name="center_clarity" placeholder="Clarity" required="required" list='clarity_list' />
+        <datalist id='clarity_list'>
+        <option value = 'VVS1'>
+        <option value = 'VVS2'>
+        <option value = 'VS1'>
+        <option value = 'VS2'>
+        <option value = 'SI1'>
+        <option value = 'SI2'>
+        </datalist>
         <br><br>
 
         Side Stones
         <br>
         <input type="text" name="side_carat" placeholder="Carat Weight" required="required" />
-        <input type="text" name="side_color" placeholder="Color" required="required" />
-        <input type="text" name="side_clarity" placeholder="Clarity" required="required" />
+        <input type="text" name="side_color" placeholder="Color" required="required" list='color_list' />
+        <input type="text" name="side_clarity" placeholder="Clarity" required="required" list='clarity_list'/>
         <br><br>
         Setting
         <br>
         <input type="text" name="setting" placeholder="Setting" required="required" />
         <br><br>
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        <button type="submit" class="btn btn-outline-primary">Predict</button>
     </form>
     <br>
-    {{prediction_text}}
+    <b>Total cost:</b> ${{prediction_text}}
+    <br>
+    <b>Center stone cost:</b> ${{center_stone}}
+    <br>
+    <b>Side stone cost:</b> ${{side_stones}} each
+    <br>
+    <b>Setting cost:</b> ${{setting_cost}}
+    <br>
+    <br>App is for entertainment purposes only!
     
 
 </body>
