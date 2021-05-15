@@ -10,7 +10,7 @@ app = Flask(__name__)
 model = pickle.load(open('random_forest.pkl', 'rb'))
 
 
-@app.route('/', methods=['GET'])
+@app.route('/')
 def Home():
     return render_template('index.html')
 
@@ -39,9 +39,7 @@ def predict():
 
     # Modelling
 
-    rf = pickle.load(open('./random_forest.pkl', 'rb'))
-
-    prediction = rf.predict(test_data)
+    prediction = model.predict(test_data)
 
     center_prediction = float(prediction[0])
     side_prediction = float(prediction[1])*2
@@ -54,4 +52,4 @@ def predict():
 
 
 if __name__ == '__main__':
-    app.run(port=3000, debug=True)
+    app.run(debug=True)
