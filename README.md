@@ -10,3 +10,5 @@ I first tested the regression in Alteryx as a proof of concept before coming to 
 
 This app is deployed on Heroku at the following link:
 https://diamond-pricing.herokuapp.com/
+
+Edit: We got married, the ring cost only 3% more than my app estimated!
